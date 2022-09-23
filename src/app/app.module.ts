@@ -1,18 +1,17 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LandingPageComponent } from './landing-page/landing-page.component';
-import { TrainerPageComponent } from './trainer-page/trainer-page.component';
-import { CataloguePageComponent } from './catalogue-page/catalogue-page.component';
+import { TrainerPage } from './pages/trainer/trainer.page';
+import { CataloguePage } from './pages/catalogue/catalogue.page';
+import { LandingPage } from './pages/landing/landing.page';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LandingPageComponent,
-    TrainerPageComponent,
-    CataloguePageComponent
+    TrainerPage,
+    CataloguePage,
+    LandingPage,
   ],
   imports: [
     BrowserModule,
