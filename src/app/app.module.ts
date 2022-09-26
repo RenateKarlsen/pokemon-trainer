@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { TrainerPage } from './pages/trainer/trainer.page';
 import { CataloguePage } from './pages/catalogue/catalogue.page';
 import { LandingPage } from './pages/landing/landing.page';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,11 @@ import { LandingPage } from './pages/landing/landing.page';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    RouterModule.forRoot([
+      { path: '', component: LandingPage },
+      { path: 'trainer', component: TrainerPage},
+      { path: 'catalogue', component: CataloguePage },
+    ])
   ],
   providers: [],
   bootstrap: [AppComponent]
