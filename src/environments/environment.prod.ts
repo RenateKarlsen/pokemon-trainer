@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  apiTrainers: 'https://best-asl-translator.herokuapp.com/trainers',
 };

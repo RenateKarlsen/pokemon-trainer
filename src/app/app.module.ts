@@ -6,6 +6,9 @@ import { TrainerPage } from './pages/trainer/trainer.page';
 import { CataloguePage } from './pages/catalogue/catalogue.page';
 import { LandingPage } from './pages/landing/landing.page';
 import { RouterModule } from '@angular/router';
+import { LoginFormComponent } from './components/login-form/login-form.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -13,12 +16,10 @@ import { RouterModule } from '@angular/router';
     TrainerPage,
     CataloguePage,
     LandingPage,
+    LoginFormComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
