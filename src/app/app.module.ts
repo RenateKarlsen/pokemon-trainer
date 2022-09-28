@@ -8,6 +8,7 @@ import { LandingPage } from './pages/landing/landing.page';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { LoginFormComponent } from './components/login-form/login-form.component';
+import { PokemonListComponent } from './components/pokemon-list/pokemon-list.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { LoginFormComponent } from './components/login-form/login-form.component
     CataloguePage,
     LandingPage,
     LoginFormComponent,
+    PokemonListComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [],
