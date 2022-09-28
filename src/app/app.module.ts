@@ -9,6 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import { PokemonListComponent } from './components/pokemon-list/pokemon-list.component';
+import { CollectButtonComponent } from './components/collect-button/collect-button.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { PokemonListComponent } from './components/pokemon-list/pokemon-list.com
     LandingPage,
     LoginFormComponent,
     PokemonListComponent,
+    CollectButtonComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [],
