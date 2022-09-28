@@ -6,12 +6,11 @@ import { Pokemon } from '../models/pokemon.model';
 const { apiPokemon } = environment;
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CatalogueService {
-
   private _pokemons: Pokemon[] = [];
-  private _error: string = "";
+  private _error: string = '';
   private _loading: boolean = false;
 
   get pokemons(): Pokemon[] {
@@ -25,28 +24,29 @@ export class CatalogueService {
   get loading(): boolean {
     return this._loading;
   }
-  
-  constructor(private readonly http: HttpClient) { }
+
+  constructor(private readonly http: HttpClient) {}
 
   public findAllPokemons(): void {
     this._loading = true;
-    this.http.get<Pokemon[]>(apiPokemon)
-    .pipe(
-      finalize(() => {
-        this._loading = false;
-      })
-    )
-      .subscribe( {
-        next: (pokemons: Pokemon[]) => {
-          this._pokemons = pokemons;
+    this.http
+      .get<Pokemon[]>(apiPokemon)
+      .pipe(
+        finalize(() => {
+          this._loading = false;
+        })
+      )
+      .subscribe({
+        next: (pokemons: any) => {
+          console.log(this._pokemons);
+          console.log(pokemons);
+
+          this._pokemons = pokemons.results;
+          console.log(this._pokemons);
         },
         error: (error: HttpErrorResponse) => {
           this._error = error.message;
-
-        }
-      })
-      }
-    
-
+        },
+      });
   }
-
+}
