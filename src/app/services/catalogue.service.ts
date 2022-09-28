@@ -1,6 +1,6 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { finalize } from 'rxjs';
+import { finalize, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Pokemon } from '../models/pokemon.model';
 const { apiPokemon } = environment;
@@ -48,5 +48,9 @@ export class CatalogueService {
           this._error = error.message;
         },
       });
+  }
+
+  getPokemons(): Observable<any> {
+    return this.http.get(`${apiPokemon}/api/v2/pokemon?limit=100`);
   }
 }
