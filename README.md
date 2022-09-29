@@ -13,7 +13,7 @@ Navigate to http://localhost:4200/. The app will automatically reload if you cha
 
 ## Usage
 
-The app is deplyed at [Heroku](https://www.heroku.com/).
+The app is deplyed at [Heroku](https://fast-mesa-05742.herokuapp.com/).
 
 Local installation requires Angular CLI.
 
