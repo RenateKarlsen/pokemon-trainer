@@ -21,6 +21,7 @@ export class CollectButtonComponent implements OnInit {
 
   ngOnInit(): void {
     this.isCollected = this.trainerService.inCollection(this.pokemonId);
+    console.log(this.isCollected + 'ngOnInit');
   }
 
   collectClick(): void {
@@ -32,6 +33,7 @@ export class CollectButtonComponent implements OnInit {
         this.loading = false;
         this.isCollected = this.trainerService.inCollection(this.pokemonId);
         console.log('NEXT', trainer);
+        console.log(this.isCollected);
       },
       error: (error: HttpErrorResponse) => {
         this.loading = false;
