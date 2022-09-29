@@ -1,0 +1,26 @@
+<nav id="navbar-container">
+  <img src="../../../assets/images/pokeball.png" alt="pokeball" id="pokeball" />
+
+  <span id="nav-txt">POKÉMON TRAINER</span>
+  <ng-container *ngIf="trainer !== undefined">
+    <span>
+      <a id="trainer-link" class="link" routerLink="/trainer">Trainer</a></span
+    >
+    <span>
+      <a id="catalogue-link" class="link" routerLink="/catalogue"
+        >Catalogue</a
+      ></span
+    >
+    <span id="user-container">
+      <h2 id="user-txt">{{ trainer.username }}</h2>
+      <img
+        src="../../../assets/images/pokeball-white.png"
+        alt="pokeball"
+        id="user-ball"
+      />
+    </span>
+    <button id="logout-btn" (click)="logout()" title="Log out">
+      <span class="material-icons" id="logout-icon"> logout </span>
+    </button>
+  </ng-container>
+</nav>

@@ -11,6 +11,7 @@ import { LoginFormComponent } from './components/login-form/login-form.component
 import { PokemonListComponent } from './components/pokemon-list/pokemon-list.component';
 import { CollectButtonComponent } from './components/collect-button/collect-button.component';
 import { PokemonCardComponent } from './components/pokemon-card/pokemon-card.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { PokemonCardComponent } from './components/pokemon-card/pokemon-card.com
     PokemonListComponent,
     CollectButtonComponent,
     PokemonCardComponent,
+    NavbarComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [],
