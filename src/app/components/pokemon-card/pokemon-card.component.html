@@ -1,5 +1,11 @@
-<div *ngIf="pokemon">
-  <h1>{{ pokemon.name }}</h1>
-  <img src="{{ pokemon.imageUrl }}" />
-  <app-collect-button [pokemonId]="pokemon.id"></app-collect-button>
+<div id="card-container">
+  <div class="window" *ngIf="pokemon">
+    <div class="title-bar">
+      <h1 class="title">{{ pokemon.name }}</h1>
+    </div>
+    <img src="{{ pokemon.imageUrl }}" />
+    <div id="btn-container">
+      <app-collect-button [pokemonId]="pokemon.id"></app-collect-button>
+    </div>
+  </div>
 </div>

@@ -1,3 +1,18 @@
-div {
-    background-color:darkkhaki;
+#card-container {
+    display: flex;
+    align-items: center;
+}
+
+img {
+    width: 100%;
+}
+
+.window {
+    background-color: #7dd4b0;
+    align-items: center;
+}
+
+#btn-container {
+    display: flex;
+    justify-content: center;
 }
