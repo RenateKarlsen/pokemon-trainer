@@ -1,5 +1,5 @@
-<div>
+<div *ngIf="pokemon">
   <h1>{{ pokemon.name }}</h1>
   <img src="{{ pokemon.imageUrl }}" />
-  <app-collect-button></app-collect-button>
+  <app-collect-button [pokemonId]="pokemon.id"></app-collect-button>
 </div>

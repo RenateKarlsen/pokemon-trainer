@@ -2,7 +2,9 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { finalize, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { Pokemon } from '../models/pokemon.model';
+import { StorageKeys } from '../consts/storage-key.enum';
+import { Pokemon, PokemonResult } from '../models/pokemon.model';
+import { StorageUtil } from '../utils/storage.util';
 const { apiPokemon } = environment;
 
 @Injectable({
@@ -13,7 +15,7 @@ export class CatalogueService {
   private _error: string = '';
   private _loading: boolean = false;
 
-  get pokemons(): Pokemon[] {
+  get pokemon(): Pokemon[] {
     return this._pokemons;
   }
 
@@ -28,21 +30,31 @@ export class CatalogueService {
   constructor(private readonly http: HttpClient) {}
 
   public findAllPokemons(): void {
+    if (this._pokemons.length > 0 || this.loading) {
+      return;
+    }
+
     this._loading = true;
     this.http
-      .get<Pokemon[]>(apiPokemon)
+      .get<PokemonResult>(apiPokemon)
       .pipe(
         finalize(() => {
           this._loading = false;
         })
       )
       .subscribe({
-        next: (pokemons: any) => {
-          console.log(this._pokemons);
-          console.log(pokemons);
-
-          this._pokemons = pokemons.results;
-          console.log(this._pokemons);
+        next: (response: PokemonResult) => {
+          this._pokemons = response.results;
+          StorageUtil.storageSave<Pokemon[]>(
+            StorageKeys.Pokemon,
+            this._pokemons
+          );
+          this._pokemons = response.results.map((pokemon) => {
+            return {
+              ...pokemon,
+              ...this.getIdAndImage(pokemon.url),
+            };
+          });
         },
         error: (error: HttpErrorResponse) => {
           this._error = error.message;
@@ -50,7 +62,15 @@ export class CatalogueService {
       });
   }
 
-  getPokemons(): Observable<any> {
-    return this.http.get(`${apiPokemon}/api/v2/pokemon?limit=100`);
+  public pokemonById(id: string): Pokemon | undefined {
+    return this._pokemons.find((pokemon: Pokemon) => pokemon.id === id);
+  }
+
+  private getIdAndImage(url: string): any {
+    const id = url.split('/').filter(Boolean).pop();
+    return {
+      id,
+      imageUrl: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`,
+    };
   }
 }
