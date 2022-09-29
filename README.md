@@ -17,6 +17,18 @@ The app is deplyed at [Heroku](https://fast-mesa-05742.herokuapp.com/).
 
 Local installation requires Angular CLI.
 
+## Application
+
+### Landing Page
+![image](https://user-images.githubusercontent.com/59543261/193035709-08ba2337-fb56-4059-83b0-b78e4b32f40b.png)
+
+### Catalogue
+![image](https://user-images.githubusercontent.com/59543261/193035792-28e09a58-8440-40f0-8182-f113b01fe05d.png)
+
+### Profile
+![image](https://user-images.githubusercontent.com/59543261/193035951-8b66c2d4-18eb-411f-9b70-20c0349b1b6b.png)
+
+
 ## Authors
 
 Renate Karlsen, Pernille Ofte and Thea Rime
