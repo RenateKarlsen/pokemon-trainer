@@ -41,4 +41,12 @@ export class TrainerService {
       this._trainer.pokemon.push(pokemon);
     }
   }
+
+  public removeFromCollection(pokemonId: string): void {
+    if (this._trainer) {
+      this._trainer.pokemon = this._trainer.pokemon.filter(
+        (pokemon: Pokemon) => pokemon.id !== pokemonId
+      );
+    }
+  }
 }

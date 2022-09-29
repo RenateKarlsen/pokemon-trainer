@@ -4,12 +4,11 @@
   ></ng-container>
 
   <ng-template #collected>
-    <span class="collect-txt" id="collected">REMOVE</span>
+    <button (click)="collectClick()">Remove</button>
     <img src="../../../assets/pokeball.ico" alt="pokeball" id="pokeball" />
   </ng-template>
 
   <ng-template #collect>
-    <span class="collect-txt">COLLECT</span>
+    <button (click)="collectClick()">Collect</button>
   </ng-template>
-  <button (click)="collectClick()">Collect</button>
 </ng-container>

@@ -40,7 +40,7 @@ export class CollectService {
     }
 
     if (this.trainerService.inCollection(pokemonId)) {
-      console.log('Pokemon ID' + 'DIN DRITT' + pokemonId);
+      this.trainerService.removeFromCollection(pokemonId);
       throw new Error('addToCollection: Pokemon already collected!');
     } else {
       this.trainerService.addToCollection(pokemon);
